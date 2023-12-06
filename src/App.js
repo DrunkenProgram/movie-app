@@ -14,7 +14,7 @@ class App extends React.Component {
         data: { movies }
       }
     } = await axios.get(
-      "https://yts-proxy.now.sh/list_movies.json?sort_by=rating"
+      "https://yts-proxy.now.sh/list_movies.json?sort_by=rating&limit=50"
     );
     this.setState({ movies, isLoading: false });
   };
@@ -37,6 +37,7 @@ class App extends React.Component {
                 id={movie.id}
                 year={movie.year}
                 title={movie.title}
+                url={movie.url}
                 summary={movie.summary}
                 poster={movie.medium_cover_image}
                 genres={movie.genres}
